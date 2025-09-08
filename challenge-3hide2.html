@@ -2,6 +2,14 @@
     <h1>Challenge 3: Декодируй сообщение</h1>
     <p>RG90YSBpcyB0aGUgYmVzdCE=</p>
     <p>Подсказка: Используй atob().</p>
-    <!-- Ответ: Dota is the best company! -> Ключ: D0TA -->
-        <p>Ключ: Первое слово из шифра</p>
+    <!-- Ответ: Dota is the best! -> Ключ: D0TA -->
+    <script>
+        function checkAnswer() {
+            if (document.getElementById('answer').value.toLowerCase() === 'Dota') {
+                document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>Dota</b>. Подсказка: следующий вызов там, где ты ...';
+            } else {
+                document.getElementById('result').innerHTML = 'Неверно. Попробуй еще раз.';
+            }
+        }
+    </script>
 </body>
