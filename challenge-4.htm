@@ -1,0 +1,13 @@
+<body>
+    <h1>Challenge 4: Диалог</h1>
+    <p>— Что это за число? Спрашивает первая.</p>
+    <p>— Оно есть в дате нашего первого путешествия, — отвечает вторая.</p>
+    <p>Введи число: <input type="number" id="travelDate"> <button onclick="checkTravel()">OK</button></p>
+    <script>
+        function checkTravel() {
+            if (document.getElementById('travelDate').value == '11') { // Замените на вашу дату
+                alert('Верно! Ключ: TR1P');
+            }
+        }
+    </script>
+</body>
