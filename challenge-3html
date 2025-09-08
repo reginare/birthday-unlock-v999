@@ -1,0 +1,6 @@
+<body>
+    <h1>Challenge 3: Декодируй сообщение</h1>
+    <p>RG90YSBpcyB0aGUgYmVzdCBjb21wYW55IQ==</p>
+    <p>Подсказка: Используй atob() в консоли браузера.</p>
+    <!-- Ответ: Dota is the best company! -> Ключ: D0TA -->
+</body>
