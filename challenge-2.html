@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 2: Анализ кода</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 0.5rem;
+        }
+        .hint {
+            background-color: #161b22;
+            border-left: 4px solid #58a6ff;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        code {
+            background-color: #161b22;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #d2a8ff;
+        }
+        input, button {
+            font-family: inherit;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        button {
+            background-color: #238636;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2ea043;
+        }
+        #result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #1c532b;
+            border: 1px solid #2ea043;
+            color: #3fb950;
+        }
+        .error {
+            background-color: #5d2f3a;
+            border: 1px solid #da3633;
+            color: #f85149;
+        }
+        .token {
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #ff7b72, #d2a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0.5rem;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Challenge 2: Анализ кода</h1>
+    
+    <p>Сервер вернул ответ <code>200 OK</code>, но данные скрыты в неожиданном месте.</p>
+    
+    <div class="hint">
+        <strong>Подсказка:</strong> Исходный код страницы — это как чертеж здания. Иногда самые важные детали спрятаны в комментариях, которые не видны при обычном просмотре.
+        <br><br>
+        Нажми <code>Ctrl+U</code> (Windows/Linux) или <code>Cmd+Option+U</code> (Mac) чтобы изучить исходный код этой страницы.
+    </div>
+
+    <p>Найди скрытый комментарий с ключом и введи его ниже:</p>
+    
+    <input type="text" id="answerInput" placeholder="Введите ключ...">
+    <button onclick="checkAnswer()">Проверить ключ</button>
+    
+    <div id="result"></div>
+
+    <!-- ВАЖНО: Это скрытый комментарий с ключом. Он виден только в исходном коде страницы. -->
+    <!-- Ключ: 8B9C -->
+    <!-- Следующая подсказка: Ищи там, где ты заряжаешь не только телефон, но и себя по утрам. -->
+
+    <script>
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answerInput').value.trim().toUpperCase();
+            const correctAnswer = '8B9C'; // Ключ из комментария
+            const resultDiv = document.getElementById('result');
+            
+            if (userAnswer === correctAnswer) {
+                resultDiv.className = 'success';
+                resultDiv.innerHTML = `
+                    <p>✅ Верно! Ключ принят.</p>
+                    <p>Твоя часть токена: <span class="token">${correctAnswer}</span></p>
+<p><strong>Следующая подсказка:</strong> Ищи там, где ты заряжаешь не только телефон, но и себя по утрам. (Кофемашина/чайник)</p>
+                `;
+            } else {
+                resultDiv.className = 'error';
+                resultDiv.innerHTML = '❌ Неверно. Продолжай искать в исходном коде. Нужно найти HTML-комментарий.';
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        // Добавляем обработчик нажатия Enter в поле ввода
+        document.getElementById('answerInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+    </script>
+
+    <!-- Дополнительные комментарии для запутывания (опционально) -->
+    <!-- TODO: Убрать перед продакшеном -->
+    <!-- console.log('Debug info'); -->
+    <!-- function deprecatedFunction() { return false; } -->
+</body>
+</html>
