@@ -6,13 +6,12 @@
     <p>RG90YSBpcyB0aGUgYmVzdCE=</p>
     <p>Подсказка: Используй atob().</p>
     <!-- Ответ: Dota is the best! -> Ключ: D0TA -->
-        <p>Введи ответ:</p>
     <p>Ответ: <input type="text" id="answer"> <button onclick="checkAnswer()">Проверить</button></p>
     <p id="result"></p>
     <script>
         function checkAnswer() {
-            if (document.getElementById('answer').value.toLowerCase() === 'Dota') {
-                document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>Dota</b>. Подсказка: следующий вызов там, где ты ...';
+            if (document.getElementById('answer').value.toLowerCase() === 'dota') {
+                document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>dota</b>. Подсказка: следующий вызов там, где ты ...';
             } else {
                 document.getElementById('result').innerHTML = 'Неверно. Попробуй еще раз.';
             }
