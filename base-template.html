@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Unlock v3.0</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Дополнительные стили для конкретной страницы -->
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🛡️ System Unlock Protocol v3.0</h1>
+            <p>Добро пожаловать, инженер. Для получения доступа к праздничному ресурсу требуется аутентификация.</p>
+        </header>
+
+        <main>
+            <!-- Содержимое страницы будет здесь -->
+        </main>
+
+        <footer class="footer">
+            <p>// Ваша личная QA 😉</p>
+        </footer>
+    </div>
+
+    <script>
+        // Общие JavaScript функции
+        function handleEnterKey(event, callback) {
+            if (event.key === 'Enter') {
+                callback();
+            }
+        }
+        
+        function showResult(element, message, isSuccess) {
+            const resultElement = document.getElementById(element);
+            resultElement.innerHTML = message;
+            resultElement.className = isSuccess ? 'result success' : 'result error';
+            resultElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
