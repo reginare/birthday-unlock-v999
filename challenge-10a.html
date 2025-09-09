@@ -1,0 +1,33 @@
+<style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            padding: 2rem;
+        }
+        .console {
+            background-color: #161b22;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        .success { color: #3fb950; }
+    </style>
+<body>
+    <h1>Финальный вызов</h1>
+    <p>Ты собрал все части токена. Составь его в правильном порядке:</p>
+    <p>Часть 1: 7F3A</p>
+    <p>Часть 2: 8B9C</p>
+    <p>Часть 3: D0TA</p>
+    <p>Часть 4: TR1P</p>
+    <p>Твой auth_token: <input type="text" id="finalToken"> <button onclick="checkFinal()">Проверить</button></p>
+    <script>
+        function checkFinal() {
+            if (document.getElementById('finalToken').value.toUpperCase() === '7F3A-8B9C-D0TA-TR1P') {
+                window.location.href = 'final-gift.html';
+            } else {
+                alert('Неверный токен. Доступ запрещен.');
+            }
+        }
+    </script>
+</body>
