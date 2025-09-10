@@ -19,13 +19,13 @@
     <body>
     <h1>Challenge 3: Декодируй сообщение</h1>
     <p>RG90YSBpcyB0aGUgYmVzdCE=</p>
-    <p>Подсказка: Используй atob().</p>
+    <p>Подсказка: Используй, например, глоабльную функцию.</p>
     <!-- Ответ: Dota is the best! -> Ключ: D0TA -->
     <p>Ответ: <input type="text" id="answer"> <button onclick="checkAnswer()">Проверить</button></p>
     <p id="result"></p>
     <script>
         function checkAnswer() {
-            if (document.getElementById('answer').value.toLowerCase() === 'dota') {
+            if (document.getElementById('answer').value.toLowerCase() === 'Dota is the best!') {
                 document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>D0TA</b>. Подсказка: следующий вызов там, где ты ...';
             } else {
                 document.getElementById('result').innerHTML = 'Неверно. Попробуй еще раз.';
