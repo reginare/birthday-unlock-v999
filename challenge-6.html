@@ -18,14 +18,14 @@
     <body>
     <h1>Challenge 6: Двоичный код</h1>
     <p>01001000 01100001 01110000 01110000 01111001 00100000 01000010 01101001 01110010 01110100 01101000 01100100 01100001 01111001 00100001</p>
-    <p>Переведи в текст, чтобы получить ключ. Ответ запиши в нижнем регистре</p>
+    <p>Переведи в текст, чтобы получить ключ</p>
     <!-- Ответ: Happy Birthday! -> Ключ: HBD! -->
 <p>Ответ: <input type="text" id="answer"> <button onclick="checkAnswer()">Проверить</button></p>
     <p id="result"></p>
         <script>
         function checkAnswer() {
             if (document.getElementById('answer').value.toLowerCase() === 'happy birthday!') {
-                document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>HBD!</b>. Подсказка: следующий вызов там, где ты ...';
+                document.getElementById('result').innerHTML = 'Верно! Часть токена: <b>HBD!</b>. Подсказка: следующий вызов там, где lubit spat zhopka';
             } else {
                 document.getElementById('result').innerHTML = 'Неверно. Попробуй еще раз.';
             }
