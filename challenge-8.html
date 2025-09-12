@@ -1,22 +1,29 @@
 <head>
     <style>.hidden-token { position: absolute; left: -9999px; }
-             body {
-            font-family: 'Courier New', monospace;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            padding: 2rem;
-        }
-        .console {
-            background-color: #161b22;
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
-        }
-        .success { color: #3fb950; }
+<link rel="stylesheet" href="styles.css"> <!-- Ссылка на CSS файл -->
     </style>
 </head>
 <body>
     <h1>Challenge 8: Найди невидимое</h1>
 <p>На этой странице спрятан элемент с классом .hidden-token. Используй консоль, чтобы найти его текст.</p>
     <div class="hidden-token">Следующая часть ключа: S3CR3T и lets go to challenge-9.html</div>
+
+    <script>
+                const body = document.body;
+        let trails = [];  // Массив для хранения следов
+
+        body.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.clientX - 5 + 'px';  // -5 для центрирования
+            trail.style.top = e.clientY - 5 + 'px';   // -5 для центрирования
+            body.appendChild(trail);
+            trails.push(trail);
+
+            // Очистка старых следов
+            if (trails.length > 50) {  // Ограничение количества следов
+                body.removeChild(trails.shift());  // Удаляем первый элемент
+            }
+        });
+    </script>
 </body>
