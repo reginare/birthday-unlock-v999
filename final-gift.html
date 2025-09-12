@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html>
- <style>
-        body {
-            font-family: 'Courier New', monospace;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            padding: 2rem;
-        }
-        .console {
-            background-color: #161b22;
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
-        }
-        .success { color: #3fb950; }
-    </style>
+<link rel="stylesheet" href="styles.css"> <!-- Ссылка на CSS файл -->
   <head>
     <title>Код разблокирован!</title>
     <style>body { text-align: center; padding: 5%; font-family: sans-serif; }</style>
@@ -25,5 +11,23 @@
     <p>Забирай награду: <b>["в комодике"]</b></p>
     <img src="assets/gift.jpg" width="400">
     <p>Я тебя бесконечно люблю! С днем рождения!</p>
+ <script>
+          const body = document.body;
+        let trails = [];  // Массив для хранения следов
+
+        body.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.clientX - 5 + 'px';  // -5 для центрирования
+            trail.style.top = e.clientY - 5 + 'px';   // -5 для центрирования
+            body.appendChild(trail);
+            trails.push(trail);
+
+            // Очистка старых следов
+            if (trails.length > 50) {  // Ограничение количества следов
+                body.removeChild(trails.shift());  // Удаляем первый элемент
+            }
+        });
+ </script>
 </body>
 </html>
