@@ -4,136 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge 2: Анализ кода</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Красивый шрифт */
-            text-align: center;
-            padding: 50px;
-            background: #1e1e2e; /* Темный фон */
-            color: #f4f4f4; /* Светлый текст */
-            overflow: hidden; /* Скрываем следы, выходящие за границы */
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для заголовка */
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .key-container {
-            font-size: 2em;
-            letter-spacing: 5px;
-            background: #2e3440; /* Тёмный фон для ключа */
-            color: #eceff4; /* Светлый текст для ключа */
-            padding: 15px 25px;
-            display: inline-block;
-            border-radius: 8px; /* Скругленные углы */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для ключа */
-            transition: all 0.3s ease; /* Плавный эффект при наведении */
-        }
-
-        .key-container:hover {
-            transform: scale(1.05); /* Увеличение при наведении */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Более сильная тень */
-        }
-
-        /* Стиль для следа */
-        .trail {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый */
-            border-radius: 50%;
-            pointer-events: none; /* Чтобы след не мешал взаимодействию */
-            z-index: 10; /* Следы поверх всего */
-            animation: trailFade 2s ease-out; /* Анимация исчезновения */
-        }
-
-        @keyframes trailFade {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-    {
-            font-family: 'Courier New', monospace;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #58a6ff;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 0.5rem;
-        }
-        .hint {
-            background-color: #161b22;
-            border-left: 4px solid #58a6ff;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        code {
-            background-color: #161b22;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            color: #d2a8ff;
-        }
-        input, button {
-            font-family: inherit;
-            padding: 0.5rem 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            background-color: #0d1117;
-            color: #c9d1d9;
-        }
-        button {
-            background-color: #238636;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        button:hover {
-            background-color: #2ea043;
-        }
-        #result {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
-            display: none;
-        }
-        .success {
-            background-color: #1c532b;
-            border: 1px solid #2ea043;
-            color: #3fb950;
-        }
-        .error {
-            background-color: #5d2f3a;
-            border: 1px solid #da3633;
-            color: #f85149;
-        }
-        .token {
-            font-size: 1.2em;
-            font-weight: bold;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, #ff7b72, #d2a8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0.5rem;
-            border: 1px solid #30363d;
-            border-radius: 4px;
-            display: inline-block;
-            margin: 0.5rem 0;
-        }
-    </style>
+<link rel="stylesheet" href="styles.css"> <!-- Ссылка на CSS файл -->
 </head>
 <body>
     <h1>🔍 Challenge 2: Анализ кода</h1>
@@ -183,9 +54,25 @@
                 checkAnswer();
             }
         });
+
+        const body = document.body;
+        let trails = [];  // Массив для хранения следов
+
+        body.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.clientX - 5 + 'px';  // -5 для центрирования
+            trail.style.top = e.clientY - 5 + 'px';   // -5 для центрирования
+            body.appendChild(trail);
+            trails.push(trail);
+
+            // Очистка старых следов
+            if (trails.length > 50) {  // Ограничение количества следов
+                body.removeChild(trails.shift());  // Удаляем первый элемент
+            }
+        });
     </script>
 
-    <!-- Дополнительные комментарии для запутывания (опционально) -->
     <!-- TODO: Убрать перед продакшеном -->
     <!-- console.log('Debug info'); -->
     <!-- function deprecatedFunction() { return false; } -->
