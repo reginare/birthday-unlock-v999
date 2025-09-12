@@ -28,7 +28,7 @@
             trails.push(trail);
 
             // Очистка старых следов
-            if (trails.length > 50) {  // Ограничение количества следов
+            if (trails.length > 500) {  // Ограничение количества следов
                 body.removeChild(trails.shift());  // Удаляем первый элемент
             }
         });
