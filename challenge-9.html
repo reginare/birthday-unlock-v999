@@ -1,18 +1,5 @@
-<style>
-        body {
-            font-family: 'Courier New', monospace;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            padding: 2rem;
-        }
-        .console {
-            background-color: #161b22;
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
-        }
-        .success { color: #3fb950; }
-    </style>
+<link rel="stylesheet" href="styles.css"> <!-- Ссылка на CSS файл -->
+
 <body>
     <h1>Challenge 9: Выполни код</h1>
     <p>Открой консоль (F12) и выполни: <code>console.log(atob('SSBsb3ZlIHlvdSE='))</code></p>
@@ -20,4 +7,22 @@
     <p>Если ты собрал все части ключа, этот линк для тебя <a href="challenge-10a.html" style="color: #58a6ff;">push me</a>.</p>
 
         <!-- Ответ: I love you! -> Ключ: LOVE -->
+<script>
+                const body = document.body;
+        let trails = [];  // Массив для хранения следов
+
+        body.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.clientX - 5 + 'px';  // -5 для центрирования
+            trail.style.top = e.clientY - 5 + 'px';   // -5 для центрирования
+            body.appendChild(trail);
+            trails.push(trail);
+
+            // Очистка старых следов
+            if (trails.length > 50) {  // Ограничение количества следов
+                body.removeChild(trails.shift());  // Удаляем первый элемент
+            }
+        });
+    </script>
 </body>
