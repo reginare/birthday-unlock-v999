@@ -18,13 +18,15 @@
     padding: 0;
 }
 
+
+
 body {
-    font-family: 'Courier New', monospace;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    padding: 2rem;
-    min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Красивый шрифт */
+            text-align: center;
+            padding: 50px;
+            background: #1e1e2e; /* Темный фон */
+            color: #f4f4f4; /* Светлый текст */
+            overflow: hidden; /* Скрываем следы, выходящие за границы */   
 }
 
 .container {
@@ -41,9 +43,9 @@ body {
 }
 
 h1 {
-    color: var(--text-accent);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень для заголовка */
 }
 
 h2 {
@@ -57,7 +59,9 @@ h3 {
 }
 
 p {
-    margin: 1rem 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
 }
 
 .code-block {
@@ -197,13 +201,36 @@ button:hover {
         max-width: 100%;
     }
 }
+        .key-container {
+            font-size: 2em;
+            letter-spacing: 5px;
+            background: #2e3440; /* Тёмный фон для ключа */
+            color: #eceff4; /* Светлый текст для ключа */
+            padding: 15px 25px;
+            display: inline-block;
+            border-radius: 8px; /* Скругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для ключа */
+            transition: all 0.3s ease; /* Плавный эффект при наведении */
+        }
 
-/* Анимации */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .key-container:hover {
+            transform: scale(1.05); /* Увеличение при наведении */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Более сильная тень */
+        }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
+        /* Стиль для следа */
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый */
+            border-radius: 50%;
+            pointer-events: none; /* Чтобы след не мешал взаимодействию */
+            z-index: 10; /* Следы поверх всего */
+            animation: trailFade 2s ease-out; /* Анимация исчезновения */
+        }
+
+        @keyframes trailFade {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
