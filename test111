@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Танцующие коты!</title>
+<style>
+body {
+  background-color: #1a1a1a; /* Темный фон */
+  overflow: hidden; /* Скрываем полосы прокрутки */
+}
+
+.dancing-cat {
+  position: absolute;
+  width: 100px; /* Размер кота */
+  height: auto;
+  animation: dance 5s linear infinite; /* Анимация танца */
+}
+
+/* Пример анимации танца.  Настройте под свои гифки */
+@keyframes dance {
+  0% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(20px) rotate(10deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+</style>
+</head>
+<body>
+
+<script>
+function createDancingCat() {
+  const cat = document.createElement('img');
+  cat.src = 'https://i.gifer.com/origin/2e/2e749f19885c8b73c91913903869e09f_w200.gif'; // Замените на URL своей гифки
+  cat.alt = 'Танцующий кот';
+  cat.className = 'dancing-cat';
+
+  // Случайное положение
+  cat.style.left = Math.random() * window.innerWidth + 'px';
+  cat.style.top = Math.random() * window.innerHeight + 'px';
+
+  // Случайная задержка анимации, чтобы коты танцевали не синхронно
+  cat.style.animationDelay = Math.random() * 5 + 's';
+
+  document.body.appendChild(cat);
+}
+
+// Создаем несколько котов
+for (let i = 0; i < 20; i++) { // Количество котов
+  createDancingCat();
+}
+</script>
+
+</body>
+</html>
