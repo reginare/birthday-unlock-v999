@@ -28,7 +28,7 @@ body {
 <script>
 function createDancingCat() {
   const cat = document.createElement('img');
-  cat.src = 'https://img2.uquiz.com/content/images/quiz/1145056_1713513057_cc33c5bd-cdba-4b2f-9384-278f1decfaae.jpg' // Замените на URL своей гифки
+  cat.src = 'https://img2.uquiz.com/content/images/quiz/1145056_1713513057_cc33c5bd-cdba-4b2f-9384-278f1decfaae.jpg'; // Замените на URL своей гифки
   cat.alt = 'Танцующий кот';
   cat.className = 'dancing-cat';
 
