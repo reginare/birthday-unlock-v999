@@ -31,7 +31,7 @@
 <script>
     function createDancingCat() {
         const cat = document.createElement('img');
-        cat.src = 'https://img2.uquiz.com/content/images/quiz/1145056_1713513057_cc33c5bd-cdba-4b2f-9384-278f1decfaae.jpg'; // Обязательно замените!
+        cat.src = 'https://static.wikia.nocookie.net/e090b2ad-fe0c-4ee8-bb38-d921c42d198d/scale-to-width/755'; // Обязательно замените!
         cat.alt = 'Танцующий кот';
         cat.className = 'dancing-cat';
 
