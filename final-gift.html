@@ -3,8 +3,27 @@
 <link rel="stylesheet" href="styles.css"> <!-- Ссылка на CSS файл -->
   <head>
     <title>Код разблокирован!</title>
-    <style>body { text-align: center; padding: 5%; font-family: sans-serif; }</style>
-</head>
+<style>
+        body {
+            background-color: #1a1a1a;
+            overflow: hidden;
+            margin: 0; /* Убираем стандартные отступы body */
+            height: 100vh; /* Занимаем всю высоту экрана */
+        }
+
+        .dancing-cat {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            animation: dance 5s linear infinite;
+        }
+
+        @keyframes dance {
+            0% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(10px) rotate(5deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+    </style></head>
 <body>
     <h1>🎉 Access Granted! 🎉</h1>
     <p>Поздравляю! Система полностью разблокирована.</p>
@@ -12,22 +31,33 @@
 <p>Location:></p>
     <img src="https://ir-8.ozone.ru/s3/multimedia-1-8/wc1000/7493172884.jpg">
  <script>
-          const body = document.body;
-        let trails = [];  // Массив для хранения следов
+           function createDancingCat() {
+        const cat = document.createElement('img');
+        cat.src = 'https://static.wikia.nocookie.net/e090b2ad-fe0c-4ee8-bb38-d921c42d198d/scale-to-width/755'; // Обязательно замените!
+        cat.alt = 'Танцующий кот';
+        cat.className = 'dancing-cat';
 
-        body.addEventListener('mousemove', function(e) {
-            const trail = document.createElement('div');
-            trail.className = 'trail';
-            trail.style.left = e.clientX - 5 + 'px';  // -5 для центрирования
-            trail.style.top = e.clientY - 5 + 'px';   // -5 для центрирования
-            body.appendChild(trail);
-            trails.push(trail);
+        // Случайное положение с учетом размеров кота
+        const catWidth = 100; // Ширина кота
+        const catHeight = 100; // Примерная высота кота, можно уточнить
 
-            // Очистка старых следов
-            if (trails.length > 50) {  // Ограничение количества следов
-                body.removeChild(trails.shift());  // Удаляем первый элемент
-            }
-        });
+        const maxX = window.innerWidth - catWidth;
+        const maxY = window.innerHeight - catHeight;
+
+        cat.style.left = Math.random() * maxX + 'px';
+        cat.style.top = Math.random() * maxY + 'px';
+
+        cat.style.animationDelay = Math.random() * 5 + 's';
+
+        document.body.appendChild(cat);
+    }
+
+    // Создаем котов после загрузки страницы
+    window.addEventListener('load', function() {
+        for (let i = 0; i < 20; i++) {
+            createDancingCat();
+        }
+    });
  </script>
 </body>
 </html>
